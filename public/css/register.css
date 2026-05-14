@@ -1,0 +1,390 @@
+/* =========================================
+   Amazon Register Page — register.css
+   ========================================= */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --color-bg:        #e3e6e6;
+    --color-white:     #ffffff;
+    --color-orange:    #FF9900;
+    --color-orange-dk: #e68a00;
+    --color-btn-grad1: #f7dfa5;
+    --color-btn-grad2: #f0c14b;
+    --color-btn-border:#a88734;
+    --color-btn-shadow:#9c7e31;
+    --color-text:      #0F1111;
+    --color-muted:     #565959;
+    --color-border:    #949494;
+    --color-border-focus: #e77600;
+    --color-error:     #CC0C39;
+    --color-link:      #0066C0;
+    --color-link-hover:#C45500;
+    --color-header:    #131921;
+    --font-main:       'Amazon Ember', Arial, sans-serif;
+    --radius:          4px;
+    --shadow-card:     0 1px 4px rgba(0,0,0,.2);
+}
+
+html { font-size: 16px; }
+
+body {
+    font-family: var(--font-main);
+    background: var(--color-bg);
+    color: var(--color-text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+}
+ *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        :root{--orange:#FF9900;--hdr:#131921;--nav:#232f3e;--text:#0F1111;--muted:#565959;--link:#007185;--border:#ddd;--bg:#EAEDED;--white:#fff;--error:#CC0C39;--green:#007600;}
+        body{font-family:Arial,sans-serif;background:var(--bg);color:var(--text);font-size:14px;min-height:100vh;display:flex;flex-direction:column}
+        a{text-decoration:none;color:var(--link)}
+        a:hover{text-decoration:underline;color:#C45500}
+
+/* ── Header ─────────────────────────────── */
+.header {
+    background: var(--color-header);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0 12px;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+/* .logo-link { display: inline-block; line-height: 0; } */
+
+/* .amazon-logo {
+    width: 110px;
+    height: auto;
+} */
+/* ── Logo ─────────────────────────────── */
+
+.logo-link{
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* Main logo text */
+.logo-anim{
+    font-family: "Arial Black", sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: -1px;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+
+    /* entrance animation */
+    animation: logoPop 0.6s ease-out;
+}
+
+/* Orange highlight part (Nova) */
+.logo-anim span{
+    color: #FF9900;
+}
+
+/* underline animation like Amazon hover */
+.logo-anim::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 3px;
+    background: #FF9900;
+    border-radius: 10px;
+    transition: 0.4s ease;
+}
+
+.logo-anim:hover::after{
+    width: 100%;
+}
+
+/* hover effect */
+.logo-anim:hover{
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+/* entrance animation */
+@keyframes logoPop{
+    0%{
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+/* ── Main ────────────────────────────────── */
+.main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px 16px 30px;
+}
+
+/* ── Card ────────────────────────────────── */
+.card {
+    background: var(--color-white);
+    border: 1px solid #d5d9d9;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    padding: 22px 28px 28px;
+    width: 100%;
+    max-width: 370px;
+    animation: cardIn .28s ease both;
+}
+
+@keyframes cardIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.card__title {
+    font-size: 1.75rem;
+    font-weight: 400;
+    margin-bottom: 18px;
+    color: var(--color-text);
+    letter-spacing: -.3px;
+}
+
+/* ── Alert ───────────────────────────────── */
+.alert {
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    font-size: .875rem;
+    margin-bottom: 14px;
+    border: 1px solid;
+}
+.alert--error {
+    background: #fff8f8;
+    border-color: var(--color-error);
+    color: var(--color-error);
+}
+.alert ul { padding-left: 16px; }
+.alert li { margin-bottom: 2px; }
+
+/* ── Field ───────────────────────────────── */
+.field {
+    margin-bottom: 10px;
+}
+
+.field__label {
+    display: block;
+    font-size: .875rem;
+    font-weight: 700;
+    margin-bottom: 3px;
+    color: var(--color-text);
+}
+
+.field__input-wrap {
+    position: relative;
+}
+
+.field__input {
+    width: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 8px 36px 8px 10px;
+    font-size: .9375rem;
+    font-family: var(--font-main);
+    color: var(--color-text);
+    background: var(--color-white);
+    outline: none;
+    transition: border-color .12s, box-shadow .12s;
+    height: 38px;
+}
+
+.field__input:focus {
+    border-color: var(--color-border-focus);
+    box-shadow: 0 0 0 3px rgba(228,121,17,.25);
+}
+
+.field__input--error {
+    border-color: var(--color-error) !important;
+}
+.field__input--error:focus {
+    box-shadow: 0 0 0 3px rgba(204,12,57,.2) !important;
+}
+
+/* placeholder */
+.field__input::placeholder { color: #ccc; font-size: .875rem; }
+
+/* toggle eye button */
+.field__toggle {
+    position: absolute;
+    right: 8px; top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #6c7b7b;
+    padding: 2px;
+    line-height: 0;
+    display: flex; align-items: center;
+    transition: color .15s;
+}
+.field__toggle:hover { color: var(--color-text); }
+.field__toggle svg { width: 18px; height: 18px; }
+
+/* hint */
+.field__hint {
+    font-size: .8125rem;
+    color: var(--color-muted);
+    margin-top: 3px;
+    display: flex; align-items: center; gap: 4px;
+}
+.field__hint svg { color: #0066C0; flex-shrink: 0; margin-top: 1px; }
+
+/* inline error */
+.field__error {
+    display: block;
+    font-size: .8125rem;
+    color: var(--color-error);
+    margin-top: 3px;
+    min-height: 16px;
+}
+
+/* ── Strength bar ─────────────────────────── */
+.strength-bar {
+    display: flex;
+    gap: 4px;
+    margin-top: 5px;
+}
+.strength-bar__seg {
+    flex: 1;
+    height: 4px;
+    border-radius: 2px;
+    background: #d5d9d9;
+    transition: background .25s;
+}
+.strength-bar__seg--weak   { background: var(--color-error); }
+.strength-bar__seg--fair   { background: #FF9900; }
+.strength-bar__seg--good   { background: #007600; }
+.strength-bar__label {
+    font-size: .75rem;
+    margin-top: 2px;
+    color: var(--color-muted);
+}
+
+/* ── Button ──────────────────────────────── */
+.btn {
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px;
+    width: 100%;
+    border-radius: var(--radius);
+    border: 1px solid;
+    font-family: var(--font-main);
+    font-size: .9375rem;
+    cursor: pointer;
+    padding: 8px 10px;
+    transition: filter .12s, box-shadow .12s;
+    margin-top: 16px;
+}
+
+.btn--primary {
+    background: linear-gradient(to bottom, var(--color-btn-grad1), var(--color-btn-grad2));
+    border-color: var(--color-btn-border);
+    box-shadow: 0 1px 0 var(--color-btn-shadow);
+    color: var(--color-text);
+    font-weight: 400;
+}
+.btn--primary:hover {
+    background: linear-gradient(to bottom, #f5d78e, #eeb933);
+    filter: brightness(1.02);
+}
+.btn--primary:active {
+    background: linear-gradient(to bottom, #eeb933, #f5d78e);
+    box-shadow: none;
+}
+.btn--primary:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+/* spinner */
+.btn__spinner {
+    animation: spin .7s linear infinite;
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ── Legal ───────────────────────────────── */
+.legal {
+    font-size: .75rem;
+    color: var(--color-muted);
+    margin-top: 14px;
+    line-height: 1.5;
+}
+
+/* ── Divider ─────────────────────────────── */
+.divider {
+    border: none;
+    border-top: 1px solid #e7e7e7;
+    margin: 18px 0;
+}
+
+/* ── Links ───────────────────────────────── */
+.link {
+    color: var(--color-link);
+    text-decoration: none;
+    font-size: inherit;
+}
+.link:hover { color: var(--color-link-hover); text-decoration: underline; }
+
+.link--arrow {
+    display: inline-flex; align-items: center; gap: 3px;
+    font-size: .875rem;
+}
+
+/* sign-in / business rows */
+.signin-prompt,
+.business-prompt {
+    font-size: .875rem;
+    color: var(--color-text);
+}
+
+/* ── Footer ──────────────────────────────── */
+/* .footer {
+    background: linear-gradient(to bottom, #f4f4f4, #e3e6e6);
+    border-top: 1px solid #cdcdcd;
+    text-align: center;
+    padding: 20px 16px;
+    margin-top: auto;
+}
+
+.footer__links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    margin-bottom: 10px;
+}
+
+.footer__link {
+    font-size: .75rem;
+    color: #555;
+    text-decoration: none;
+}
+.footer__link:hover { color: var(--color-link-hover); text-decoration: underline; }
+
+.footer__copy {
+    font-size: .75rem;
+    color: #555;
+} */
+ footer{background:var(--hdr);color:#ccc;text-align:center;padding:16px;margin-top:auto}
+        .foot-links{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 20px;margin-bottom:8px}
+        .foot-links a{color:#ccc;font-size:.78rem}
+        .foot-copy{font-size:.75rem;color:#888}
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 400px) {
+    .card { padding: 18px 16px 22px; }
+    .card__title { font-size: 1.5rem; }
+}
